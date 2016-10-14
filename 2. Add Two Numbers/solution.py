@@ -1,3 +1,8 @@
+# Problem:
+# You are given two linked lists representing two non-negative numbers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.
+# Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
+# Output: 7 -> 0 -> 8
+
 # Definition for singly-linked list.
 # class ListNode(object):
 #     def __init__(self, x):
@@ -10,17 +15,13 @@ class Solution(object):
         :type l2: ListNode
         :rtype: ListNode
         """
-        def readNumber(cur):
-            if cur:
-                return cur.next, cur.val
-            else:
-                return cur, 0
-
         c = 0
         r = ListNode(0)
         cur = r
         while l1 or l2 or c == 1:
             if c == 0 and not (l1 and l2):
+                # if c is 0, and one of the list is over run, 
+                # we can stop here.
                 cur.next = l1 if l1 else l2
                 return r.next
             v1, v2 = 0, 0
