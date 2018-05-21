@@ -18,3 +18,4 @@ class Solution(object):
                 return[i, dic[ni]]
             else:
                 dic[target - ni] = i
+print('test')
